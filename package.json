@@ -1,0 +1,70 @@
+{
+  "name": "@api.sh/sdk",
+  "version": "0.3.0",
+  "description": "Official client for api.sh: public web data from around 1,000 websites (search engines, social media, e-commerce, real estate, jobs, travel, news and sports) as clean JSON, with typed methods for every endpoint.",
+  "keywords": [
+    "api.sh",
+    "apish",
+    "scraping",
+    "web scraping",
+    "tiktok",
+    "instagram",
+    "amazon",
+    "google",
+    "serp",
+    "json"
+  ],
+  "homepage": "https://api.sh/docs/sdks",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/API-SH/apish-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/API-SH/apish-js/issues"
+  },
+  "license": "MIT",
+  "author": "api.sh <support@api.sh>",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./tools": {
+      "import": {
+        "types": "./dist/esm/tools.d.ts",
+        "default": "./dist/esm/tools.js"
+      },
+      "require": {
+        "types": "./dist/cjs/tools.d.ts",
+        "default": "./dist/cjs/tools.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
+    "test": "node test/unit.mjs",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "typescript": "5.6.3"
+  }
+}
