@@ -19,7 +19,7 @@ export interface ApishOptions {
   fetch?: typeof fetch;
 }
 
-const VERSION = "0.3.1";
+const VERSION = "0.3.2";
 declare const process: { env: Record<string, string | undefined> } | undefined;
 const sleep = (ms: number, signal?: AbortSignal) => new Promise<void>((resolve, reject) => {
   const t = setTimeout(resolve, ms);
